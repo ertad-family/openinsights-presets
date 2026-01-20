@@ -1,0 +1,53 @@
+{
+  "id": "customer-feedback",
+  "name": "Customer Feedback Synthesis",
+  "description": "Analyze customer feedback from reviews, support tickets, or surveys. Automatically classify sentiment, topics, and actionability.",
+  "category": "VOICE_OF_CUSTOMER",
+  "author": "OpenInsights",
+  "version": "1.0.0",
+  "config": {
+    "tags": [
+      { "name": "Positive", "color": "#22C55E", "description": "Positive feedback or praise" },
+      { "name": "Neutral", "color": "#6B7280", "description": "Neutral or factual statement" },
+      { "name": "Negative", "color": "#EF4444", "description": "Negative feedback or complaint" },
+      { "name": "Topic: Pricing", "color": "#0EA5E9", "description": "Related to pricing or value" },
+      { "name": "Topic: Performance", "color": "#8B5CF6", "description": "Speed, reliability, uptime" },
+      { "name": "Topic: UX", "color": "#EC4899", "description": "User experience and design" },
+      { "name": "Topic: Feature", "color": "#14B8A6", "description": "Feature request or feedback" },
+      { "name": "Topic: Bug", "color": "#F97316", "description": "Bug report or technical issue" },
+      { "name": "Topic: Support", "color": "#6366F1", "description": "Customer support experience" },
+      { "name": "Quick Fix", "color": "#22C55E", "description": "Can be addressed quickly" },
+      { "name": "Roadmap", "color": "#F59E0B", "description": "Requires planning and development" },
+      { "name": "Out of Scope", "color": "#6B7280", "description": "Not feasible or aligned with strategy" }
+    ],
+    "metadataFields": [
+      {
+        "name": "feedback_source",
+        "label": "Feedback Source",
+        "fieldType": "SELECT",
+        "options": ["App Store Review", "Support Ticket", "NPS Survey", "Social Media", "Email", "Other"]
+      },
+      {
+        "name": "user_segment",
+        "label": "User Segment",
+        "fieldType": "SELECT",
+        "options": ["New User", "Active User", "Power User", "Churned User", "Unknown"]
+      },
+      {
+        "name": "priority",
+        "label": "Priority",
+        "fieldType": "SELECT",
+        "options": ["Critical", "High", "Medium", "Low"]
+      }
+    ],
+    "aiPrompts": {
+      "autoTaggingEnabled": false,
+      "autoTaggingPrompt": "Analyze the feedback and classify:\n1. Sentiment (positive, neutral, negative)\n2. Primary topic (pricing, performance, UX, feature, bug, support)\n3. Actionability (quick fix, roadmap, out of scope)\n\nExtract specific requests or issues mentioned.",
+      "projectSummaryPrompt": "Synthesize all feedback to provide:\n1. Sentiment breakdown by source and segment\n2. Top topics by frequency and sentiment\n3. Prioritized list of actionable items\n4. Key quotes representing each major theme"
+    },
+    "projectSettings": {
+      "projectType": "Voice of Customer",
+      "goals": "Synthesize customer feedback to identify trends, issues, and opportunities"
+    }
+  }
+}

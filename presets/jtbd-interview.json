@@ -1,0 +1,55 @@
+{
+  "id": "jtbd-interview",
+  "name": "Jobs-to-be-Done Interview",
+  "description": "For analyzing customer switching decisions using the JTBD framework. Tracks the timeline from first thought to satisfaction, plus the four forces that influence adoption.",
+  "category": "DISCOVERY",
+  "author": "OpenInsights",
+  "version": "1.0.0",
+  "config": {
+    "tags": [
+      { "name": "First Thought", "color": "#6366F1", "description": "When they first realized they needed a change" },
+      { "name": "Passive Looking", "color": "#818CF8", "description": "Casually exploring alternatives" },
+      { "name": "Active Looking", "color": "#A78BFA", "description": "Actively searching for solutions" },
+      { "name": "Deciding", "color": "#C4B5FD", "description": "Evaluating final options" },
+      { "name": "Consuming", "color": "#DDD6FE", "description": "Using the new solution" },
+      { "name": "Satisfaction", "color": "#22C55E", "description": "Reflecting on the switch" },
+      { "name": "Push: Frustration", "color": "#EF4444", "description": "Frustration with current solution" },
+      { "name": "Push: Changed Circumstances", "color": "#F97316", "description": "Life/work changes forcing action" },
+      { "name": "Pull: Attraction", "color": "#10B981", "description": "Appeal of new solution features" },
+      { "name": "Pull: Social Proof", "color": "#14B8A6", "description": "Recommendations from others" },
+      { "name": "Anxiety: Unknown", "color": "#F59E0B", "description": "Fear of the unknown" },
+      { "name": "Anxiety: Switching Cost", "color": "#FBBF24", "description": "Effort to switch" },
+      { "name": "Habit: Comfort", "color": "#6B7280", "description": "Comfort with current solution" },
+      { "name": "Habit: Sunk Cost", "color": "#9CA3AF", "description": "Investment in current solution" }
+    ],
+    "metadataFields": [
+      {
+        "name": "previous_solution",
+        "label": "Previous Solution",
+        "fieldType": "TEXT",
+        "placeholder": "What they were using before"
+      },
+      {
+        "name": "new_solution",
+        "label": "New Solution",
+        "fieldType": "TEXT",
+        "placeholder": "What they switched to"
+      },
+      {
+        "name": "timeline_duration",
+        "label": "Timeline Duration",
+        "fieldType": "SELECT",
+        "options": ["< 1 week", "1-4 weeks", "1-3 months", "3-6 months", "> 6 months"]
+      }
+    ],
+    "aiPrompts": {
+      "autoTaggingEnabled": false,
+      "autoTaggingPrompt": "Identify key moments in the customer's switching journey:\n- Triggering events that started the search\n- Comparison moments with alternatives\n- The deciding moment\n- Forces at play (push, pull, anxiety, habit)\n\nTag each moment with the appropriate timeline stage or force.",
+      "projectSummaryPrompt": "Synthesize the customer journeys to identify:\n1. Common triggering events\n2. Key decision criteria\n3. Strongest push and pull forces\n4. Main anxieties and how they were overcome\n\nCreate a composite customer timeline with insights."
+    },
+    "projectSettings": {
+      "projectType": "Jobs-to-be-Done",
+      "goals": "Understand why customers switch between solutions and what drives their decisions"
+    }
+  }
+}

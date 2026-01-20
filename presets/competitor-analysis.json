@@ -1,0 +1,45 @@
+{
+  "id": "competitor-analysis",
+  "name": "Competitor Analysis",
+  "description": "Compare feature parity and user perceptions across competing products. Track what users like about competitors and switching triggers.",
+  "category": "COMPETITIVE",
+  "author": "OpenInsights",
+  "version": "1.0.0",
+  "config": {
+    "tags": [
+      { "name": "We Have", "color": "#22C55E", "description": "Feature we have that competitors lack" },
+      { "name": "They Have", "color": "#EF4444", "description": "Feature competitors have that we lack" },
+      { "name": "Both Have", "color": "#6B7280", "description": "Feature both products have" },
+      { "name": "Perception: Better", "color": "#22C55E", "description": "Users perceive us as better" },
+      { "name": "Perception: Worse", "color": "#EF4444", "description": "Users perceive us as worse" },
+      { "name": "Perception: Similar", "color": "#6B7280", "description": "Users see no difference" },
+      { "name": "Switch To Them If", "color": "#F97316", "description": "Reasons users would switch to competitor" },
+      { "name": "Switch To Us If", "color": "#10B981", "description": "Reasons users would switch to us" },
+      { "name": "Competitor Mentioned", "color": "#8B5CF6", "description": "Specific competitor reference" },
+      { "name": "Comparison Quote", "color": "#0EA5E9", "description": "Direct comparison statement" }
+    ],
+    "metadataFields": [
+      {
+        "name": "competitor_name",
+        "label": "Primary Competitor Discussed",
+        "fieldType": "TEXT",
+        "placeholder": "e.g., Competitor X"
+      },
+      {
+        "name": "user_experience",
+        "label": "User Experience Level",
+        "fieldType": "SELECT",
+        "options": ["Uses Both", "Switched From Competitor", "Switched To Competitor", "Only Uses Us", "Only Uses Them"]
+      }
+    ],
+    "aiPrompts": {
+      "autoTaggingEnabled": false,
+      "autoTaggingPrompt": "Identify competitive intelligence:\n- Direct competitor mentions and comparisons\n- Feature parity observations (we have, they have, both have)\n- Perception statements (better, worse, similar)\n- Switching triggers (what would make them switch)\n\nTag each mention with the appropriate category.",
+      "projectSummaryPrompt": "Create a competitive analysis summary:\n1. Feature comparison matrix\n2. Perception summary by competitor\n3. Top switching triggers (both directions)\n4. Opportunity areas where we can differentiate"
+    },
+    "projectSettings": {
+      "projectType": "Competitive Analysis",
+      "goals": "Understand competitive positioning and identify differentiation opportunities"
+    }
+  }
+}

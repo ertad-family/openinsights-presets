@@ -1,0 +1,59 @@
+{
+  "id": "usability-test",
+  "name": "Usability Test Analysis",
+  "description": "Complete setup for moderated usability tests. Track task completion, friction points, and user emotions during usability testing sessions.",
+  "category": "USABILITY",
+  "author": "OpenInsights",
+  "version": "1.0.0",
+  "config": {
+    "tags": [
+      { "name": "Task Success", "color": "#22C55E", "description": "User completed the task successfully" },
+      { "name": "Task Partial", "color": "#F59E0B", "description": "User completed with difficulty or assistance" },
+      { "name": "Task Failure", "color": "#EF4444", "description": "User could not complete the task" },
+      { "name": "Confusion", "color": "#F97316", "description": "User expresses confusion or uncertainty" },
+      { "name": "Hesitation", "color": "#FB923C", "description": "User pauses or hesitates before action" },
+      { "name": "Misclick", "color": "#FBBF24", "description": "User clicks wrong element or takes wrong path" },
+      { "name": "Workaround", "color": "#A3E635", "description": "User finds alternative way to complete task" },
+      { "name": "Frustration", "color": "#DC2626", "description": "User shows signs of frustration" },
+      { "name": "Delight", "color": "#10B981", "description": "User expresses positive surprise or satisfaction" },
+      { "name": "Surprise", "color": "#8B5CF6", "description": "User reacts unexpectedly to UI behavior" },
+      { "name": "Pain Point", "color": "#E11D48", "description": "Direct quote about a problem" },
+      { "name": "Feature Request", "color": "#0EA5E9", "description": "User suggests new functionality" }
+    ],
+    "metadataFields": [
+      {
+        "name": "participant_segment",
+        "label": "Participant Segment",
+        "fieldType": "SELECT",
+        "options": ["New User (< 1 month)", "Regular User (1-12 months)", "Power User (> 12 months)"],
+        "required": true
+      },
+      {
+        "name": "task_scenario",
+        "label": "Task Scenario",
+        "fieldType": "TEXT",
+        "placeholder": "e.g., Complete checkout flow"
+      },
+      {
+        "name": "device",
+        "label": "Device",
+        "fieldType": "SELECT",
+        "options": ["Desktop", "Mobile (iOS)", "Mobile (Android)", "Tablet"]
+      },
+      {
+        "name": "task_success",
+        "label": "Task Completed Successfully",
+        "fieldType": "BOOLEAN"
+      }
+    ],
+    "aiPrompts": {
+      "autoTaggingEnabled": false,
+      "autoTaggingPrompt": "Analyze the transcript and identify moments where:\n- User expresses confusion (\"I don't understand\", \"where is\", pauses > 3 sec)\n- User makes an error or takes an unexpected path\n- User expresses emotion (frustration, delight, surprise)\n- User explicitly requests a feature or workaround\n\nFor each moment, suggest the most appropriate tag from the available taxonomy.",
+      "projectSummaryPrompt": "Based on the tagged highlights across all sessions, identify:\n1. Top 5 recurring friction points by frequency\n2. Patterns that appear in 3+ sessions\n3. Critical severity issues (blocking task completion)\n\nGroup findings by theme and suggest priority order."
+    },
+    "projectSettings": {
+      "projectType": "Usability Testing",
+      "goals": "Identify usability issues and friction points in the user experience"
+    }
+  }
+}
