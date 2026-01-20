@@ -33,7 +33,7 @@
       }
     ],
     "aiPrompts": {
-      "autoTaggingEnabled": false,
+      "autoTaggingEnabled": true,
       "autoTaggingPrompt": "Identify competitive intelligence:\n- Direct competitor mentions and comparisons\n- Feature parity observations (we have, they have, both have)\n- Perception statements (better, worse, similar)\n- Switching triggers (what would make them switch)\n\nTag each mention with the appropriate category.",
       "projectSummaryPrompt": "Create a competitive analysis summary:\n1. Feature comparison matrix\n2. Perception summary by competitor\n3. Top switching triggers (both directions)\n4. Opportunity areas where we can differentiate"
     },
